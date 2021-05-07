@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">final year app</string>
+    <string name="report_chapter_input">Enter chapter name</string>
+    <string name="add_chapter_button">Add</string>
+    <string name="userInputModule">Enter module name</string>
+    <string name="addModuleButton">Add</string>
+    <string name="continueButton">Continue</string>
+    <string name="aboutButton">About</string>
+    <string name="createTrackerButton">create tracker</string>
+    <string name="trackerButton">Empty tracker 1</string>
+    <string name="userInfoButton">User info</string>
+    <string name="deleteMe">im a test dummy</string>
+    <string name="create_tracker_1">Create tracker 1</string>
+</resources>
