@@ -11,4 +11,5 @@
     <string name="userInfoButton">User info</string>
     <string name="deleteMe">im a test dummy</string>
     <string name="create_tracker_1">Create tracker 1</string>
+    <string name="saveButtonString">Save</string>
 </resources>

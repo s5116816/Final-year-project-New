@@ -1,5 +1,6 @@
 package com.example.finalyearapp
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -7,6 +8,7 @@ import android.text.method.ScrollingMovementMethod
 import android.view.View
 import android.widget.EditText
 import android.widget.TextView
+import com.google.gson.Gson
 
 class inputModule : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -69,11 +71,23 @@ class inputModule : AppCompatActivity() {
         }
     }
 
+
+
     //moves to trackermodule and pass on chapterlist to that activity
     fun continueToTracker(view: View){
 
+        val myPrefs = getSharedPreferences("storeArray", Context.MODE_PRIVATE)
+        val edit = myPrefs.edit()
+        val gson = Gson()
+
+        val json = gson.toJson(chapterList)
+
+        edit.putString("chapterList", json)
+
+        edit.commit()
+
         val intent = Intent(this,trackerModule::class.java)
-        intent.putExtra("chapter-list", chapterList)
+
         startActivity(intent)
 
     }
