@@ -16,11 +16,11 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <Button
-            android:id="@+id/createTracker1Button"
+            android:id="@+id/selectTracker1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/create_tracker_1"
-            android:onClick="toInputOne"
+
             />
 
         <Button

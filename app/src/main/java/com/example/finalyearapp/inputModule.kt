@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.method.ScrollingMovementMethod
 import android.view.View
+import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import com.google.gson.Gson
@@ -76,15 +77,30 @@ class inputModule : AppCompatActivity() {
     //moves to trackermodule and pass on chapterlist to that activity
     fun continueToTracker(view: View){
 
+        //converts array of user input into a json and store in sharedPreference
         val myPrefs = getSharedPreferences("storeArray", Context.MODE_PRIVATE)
         val edit = myPrefs.edit()
         val gson = Gson()
-
         val json = gson.toJson(chapterList)
 
         edit.putString("chapterList", json)
-
         edit.commit()
+
+
+        //a boolean variable will be stored and pass to CreateNewTracker.kt to disable
+        //selectTracker1 button
+        val buttonStatePref =  getSharedPreferences("buttonState", Context.MODE_PRIVATE)
+        val buttonStateEdit = buttonStatePref.edit()
+
+
+        buttonStateEdit.putBoolean("booleanVar", false)
+
+        buttonStateEdit.apply()
+
+
+
+
+
 
         val intent = Intent(this,trackerModule::class.java)
 
