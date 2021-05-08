@@ -49,8 +49,9 @@ class trackerModule : AppCompatActivity() {
         val circleProgressBar = findViewById<ProgressBar>(R.id.circleProgressBar)
 
 
-        deleteTracker.setOnClickListener(){
+        deleteTracker.setOnClickListener() {
 
+            //emptying user input from array and store it in sharedPreferences
             chapterList.clear()
 
             val deletePref = getSharedPreferences("storeArray", Context.MODE_PRIVATE)
@@ -62,13 +63,22 @@ class trackerModule : AppCompatActivity() {
             edit.putString("chapterList", emptyArray)
             edit.apply()
 
+
+            //code to re-enable access to createTracker1 button in CreateNewTracker.kt
+            val buttonStatePref = getSharedPreferences("buttonState", Context.MODE_PRIVATE)
+            val buttonStateEdit = buttonStatePref.edit()
+
+            buttonStateEdit.putBoolean("booleanVar", true)
+
+            buttonStateEdit.apply()
+
             circleProgressBar.progress = 0
+
 
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
 
         }
-
 
 
 
@@ -94,7 +104,10 @@ class trackerModule : AppCompatActivity() {
 
             // button created here
             val button = Button(this)
-            button.layoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+            button.layoutParams = LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.WRAP_CONTENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT
+            )
             button.text = i
 
             //add button to linearLayout and increase button value by 1 increment
@@ -105,24 +118,24 @@ class trackerModule : AppCompatActivity() {
             var isGreen = false
 
 
-          //  fun loaddata() {
-                //load before button click
+            //  fun loaddata() {
+            //load before button click
             //   val pref = applicationContext.getSharedPreferences("test", Context.MODE_PRIVATE)
-             //   val getBoolean = pref.getBoolean("color", false)
+            //   val getBoolean = pref.getBoolean("color", false)
 
             //    isGreen = getBoolean
 
-             //   if (getBoolean) {
+            //   if (getBoolean) {
 
-              //      button.setBackgroundColor(Color.GREEN)
+            //      button.setBackgroundColor(Color.GREEN)
 
-             //   } else if (!getBoolean) {
+            //   } else if (!getBoolean) {
 
-              //      button.setBackgroundColor(Color.WHITE)
+            //      button.setBackgroundColor(Color.WHITE)
 
-             //   }
+            //   }
 
-        //    }
+            //    }
 
 
             // gives buttons an onclickListener to be able to increase or degrease progress in

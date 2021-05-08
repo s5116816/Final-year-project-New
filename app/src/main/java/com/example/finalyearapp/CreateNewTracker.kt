@@ -18,9 +18,17 @@ class CreateNewTracker : AppCompatActivity() {
         val myPref = applicationContext.getSharedPreferences("buttonState", Context.MODE_PRIVATE)
         val buttonState = myPref.getBoolean("booleanVar", true)
 
+        //check if tracker one has been made
         if (!buttonState){
 
             selectTracker1.isEnabled = false
+            selectTracker1.text = getString(R.string.disableTextTracker1)
+
+        }
+        else if (buttonState){
+
+            selectTracker1.isEnabled = true
+            selectTracker1.text = getString(R.string.create_tracker_1)
 
         }
 

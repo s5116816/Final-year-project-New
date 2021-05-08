@@ -13,4 +13,5 @@
     <string name="create_tracker_1">Create tracker 1</string>
     <string name="saveButtonString">Save</string>
     <string name="delete">Delete</string>
+    <string name="disableTextTracker1">tracker 1 currently active</string>
 </resources>

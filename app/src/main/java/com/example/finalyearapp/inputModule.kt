@@ -24,11 +24,11 @@ class inputModule : AppCompatActivity() {
     }
 
     //store list of chapters from each user input
-     var chapterList = arrayListOf<String>()
+    var chapterList = arrayListOf<String>()
 
     //gets input from chapterUserInput and outputs it in chapterTextView.
     // Each input will be added in the array of chapterlist
-    fun addToChapter(view: View){
+    fun addToChapter(view: View) {
 
         //variables holding chapterUserInput and chapterTextView
         val chapterUserInput = findViewById<EditText>(R.id.chapterUserInput)
@@ -46,14 +46,14 @@ class inputModule : AppCompatActivity() {
         chapterList.add(userInput1)
 
         //removes string from array if string is empty
-        if(userInput1 == ""){
+        if (userInput1 == "") {
 
             chapterList.remove(userInput1)
         }
     }
 
     // same process as addToChapter function
-    fun addToArtefact(view: View){
+    fun addToArtefact(view: View) {
 
         val moduleUserInput = findViewById<EditText>(R.id.artefactUserInput)
         val moduleTextView = findViewById<TextView>(R.id.artefactTextView)
@@ -66,16 +66,15 @@ class inputModule : AppCompatActivity() {
         chapterList.add(userInput2)
 
 
-        if(userInput2 == ""){
+        if (userInput2 == "") {
 
             chapterList.remove(userInput2)
         }
     }
 
 
-
     //moves to trackermodule and pass on chapterlist to that activity
-    fun continueToTracker(view: View){
+    fun continueToTracker(view: View) {
 
         //converts array of user input into a json and store in sharedPreference
         val myPrefs = getSharedPreferences("storeArray", Context.MODE_PRIVATE)
@@ -89,7 +88,7 @@ class inputModule : AppCompatActivity() {
 
         //a boolean variable will be stored and pass to CreateNewTracker.kt to disable
         //selectTracker1 button
-        val buttonStatePref =  getSharedPreferences("buttonState", Context.MODE_PRIVATE)
+        val buttonStatePref = getSharedPreferences("buttonState", Context.MODE_PRIVATE)
         val buttonStateEdit = buttonStatePref.edit()
 
 
@@ -98,11 +97,7 @@ class inputModule : AppCompatActivity() {
         buttonStateEdit.apply()
 
 
-
-
-
-
-        val intent = Intent(this,trackerModule::class.java)
+        val intent = Intent(this, MainActivity::class.java)
 
         startActivity(intent)
 
