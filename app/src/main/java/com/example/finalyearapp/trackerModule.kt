@@ -16,7 +16,6 @@ import com.google.gson.reflect.TypeToken
 
 class trackerModule : AppCompatActivity() {
 
-   // private var isGreen: Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,13 +43,41 @@ class trackerModule : AppCompatActivity() {
         //used for increasing and decreasing progress, initialized as 0.0
         var circleProgr = 0.0
 
+        //variable for delete button
+        val deleteTracker = findViewById<Button>(R.id.deleteButton)
+
+        val circleProgressBar = findViewById<ProgressBar>(R.id.circleProgressBar)
+
+
+        deleteTracker.setOnClickListener(){
+
+            chapterList.clear()
+
+            val deletePref = getSharedPreferences("storeArray", Context.MODE_PRIVATE)
+            val edit = deletePref.edit()
+            val gson1 = Gson()
+
+            val emptyArray = gson1.toJson(chapterList)
+
+            edit.putString("chapterList", emptyArray)
+            edit.apply()
+
+            circleProgressBar.progress = 0
+
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+
+        }
+
+
+
 
         //update the progress bar in XML file based on button clicks
         fun progressBarUpdate() {
 
             //my variables for progress bar and textview
-            val circleProgressBar = findViewById<ProgressBar>(R.id.circleProgressBar)
-            val textViewProgressPercentage = findViewById<TextView>(R.id.textView_progressPercentage)
+            val textViewProgressPercentage =
+                findViewById<TextView>(R.id.textView_progressPercentage)
 
 
             //outputs the progress in the progress bar
@@ -58,6 +85,7 @@ class trackerModule : AppCompatActivity() {
             circleProgressBar.progress = circleProgr.toInt()
             textViewProgressPercentage.text = circleProgressBar.progress.toString()
         }
+
 
         //loops through the chapterList array to generate buttons dynamically,
         //add them in the linearLayout
@@ -74,7 +102,28 @@ class trackerModule : AppCompatActivity() {
             buttonValue += 1
 
             // boolean initialized as false as buttons don't have a green color once made
-              var isGreen = false
+            var isGreen = false
+
+
+          //  fun loaddata() {
+                //load before button click
+            //   val pref = applicationContext.getSharedPreferences("test", Context.MODE_PRIVATE)
+             //   val getBoolean = pref.getBoolean("color", false)
+
+            //    isGreen = getBoolean
+
+             //   if (getBoolean) {
+
+              //      button.setBackgroundColor(Color.GREEN)
+
+             //   } else if (!getBoolean) {
+
+              //      button.setBackgroundColor(Color.WHITE)
+
+             //   }
+
+        //    }
+
 
             // gives buttons an onclickListener to be able to increase or degrease progress in
             //progress bar
@@ -95,12 +144,27 @@ class trackerModule : AppCompatActivity() {
                             isGreen = true
                             progressBarUpdate()
 
+                            val testPref = getSharedPreferences("test", Context.MODE_PRIVATE)
+                            val edit = testPref.edit()
+
+                            edit.putBoolean("color", isGreen)
+
+                            edit.apply()
+
                         }
                         2 -> {
                             circleProgr += 50
                             button.setBackgroundColor(Color.GREEN)
                             isGreen = true
                             progressBarUpdate()
+
+                            val testPref = getSharedPreferences("test", Context.MODE_PRIVATE)
+                            val edit = testPref.edit()
+
+                            edit.putBoolean("color", isGreen)
+
+                            edit.apply()
+
 
                         }
                         3 -> {
@@ -109,12 +173,27 @@ class trackerModule : AppCompatActivity() {
                             isGreen = true
                             progressBarUpdate()
 
+                            val testPref = getSharedPreferences("test", Context.MODE_PRIVATE)
+                            val edit = testPref.edit()
+
+                            edit.putBoolean("color", isGreen)
+
+                            edit.apply()
+
                         }
                         4 -> {
                             circleProgr += 25
                             button.setBackgroundColor(Color.GREEN)
                             isGreen = true
                             progressBarUpdate()
+
+                            val testPref = getSharedPreferences("test", Context.MODE_PRIVATE)
+                            val edit = testPref.edit()
+
+                            edit.putBoolean("color", isGreen)
+
+                            edit.apply()
+
 
                         }
                         5 -> {
@@ -171,13 +250,27 @@ class trackerModule : AppCompatActivity() {
                             button.setBackgroundColor(Color.WHITE)
                             isGreen = false
                             progressBarUpdate()
-                           
+
+                            val testPref = getSharedPreferences("test", Context.MODE_PRIVATE)
+                            val edit = testPref.edit()
+
+                            edit.putBoolean("color", isGreen)
+
+                            edit.apply()
+
                         }
                         2 -> {
                             circleProgr -= 50
                             button.setBackgroundColor(Color.WHITE)
                             isGreen = false
                             progressBarUpdate()
+
+                            val testPref = getSharedPreferences("test", Context.MODE_PRIVATE)
+                            val edit = testPref.edit()
+
+                            edit.putBoolean("color", isGreen)
+
+                            edit.apply()
 
                         }
                         3 -> {
@@ -186,12 +279,26 @@ class trackerModule : AppCompatActivity() {
                             isGreen = false
                             progressBarUpdate()
 
+                            val testPref = getSharedPreferences("test", Context.MODE_PRIVATE)
+                            val edit = testPref.edit()
+
+                            edit.putBoolean("color", isGreen)
+
+                            edit.apply()
+
                         }
                         4 -> {
                             circleProgr -= 25
                             button.setBackgroundColor(Color.WHITE)
                             isGreen = false
                             progressBarUpdate()
+
+                            val testPref = getSharedPreferences("test", Context.MODE_PRIVATE)
+                            val edit = testPref.edit()
+
+                            edit.putBoolean("color", isGreen)
+
+                            edit.apply()
 
                         }
                         5 -> {
