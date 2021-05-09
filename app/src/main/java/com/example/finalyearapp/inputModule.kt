@@ -6,9 +6,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.method.ScrollingMovementMethod
 import android.view.View
-import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 import com.google.gson.Gson
 
 class inputModule : AppCompatActivity() {
@@ -25,6 +25,7 @@ class inputModule : AppCompatActivity() {
 
     //store list of chapters from each user input
     var chapterList = arrayListOf<String>()
+
 
     //gets input from chapterUserInput and outputs it in chapterTextView.
     // Each input will be added in the array of chapterlist
@@ -73,35 +74,72 @@ class inputModule : AppCompatActivity() {
     }
 
 
-    //moves to trackermodule and pass on chapterlist to that activity
-    fun continueToTracker(view: View) {
+    //saves all of the entered details to make the tracker
+    fun saveData(view: View) {
 
-        //converts array of user input into a json and store in sharedPreference
-        val myPrefs = getSharedPreferences("storeArray", Context.MODE_PRIVATE)
-        val edit = myPrefs.edit()
-        val gson = Gson()
-        val json = gson.toJson(chapterList)
+        //variables for name and project name
+        val firstName = findViewById<EditText>(R.id.firstName)
+        val projectName = findViewById<EditText>(R.id.projectName)
 
-        edit.putString("chapterList", json)
-        edit.commit()
+        //convert to string
+        val stringName = firstName.text.toString()
+        val stringPName = projectName.text.toString()
+
+        //checks if string variables are empty or not
+        if (stringName.isEmpty() && stringPName.isEmpty() || stringName.isEmpty() || stringPName.isEmpty()) {
+
+            Toast.makeText(
+                applicationContext,
+                "please type in your name and project title",
+                Toast.LENGTH_LONG
+            ).show()
+        } else {
+
+            //storing the user name and project name into "name" sharedpreferences
+            val mypref = getSharedPreferences("names", Context.MODE_PRIVATE)
+            val edit = mypref.edit()
+
+            edit.putString("userName", stringName)
+            edit.putString("projectName", stringPName)
+
+            edit.apply()
+
+            //checks if chapterList is empty or not
+            if (chapterList.isEmpty()) {
+
+                Toast.makeText(
+                    applicationContext,
+                    "please provide information for report or artefact",
+                    Toast.LENGTH_LONG
+                ).show()
+
+            } else if (chapterList.isNotEmpty()) {
+
+                //converts chapterList into a json and store in "storeArray" sharedPreference
+                val myPrefs = getSharedPreferences("storeArray", Context.MODE_PRIVATE)
+                val jsonEdit = myPrefs.edit()
+                val gson = Gson()
+                val json = gson.toJson(chapterList)
+
+                jsonEdit.putString("chapterList", json)
+                jsonEdit.apply()
 
 
-        //a boolean variable will be stored and pass to CreateNewTracker.kt to disable
-        //selectTracker1 button
-        val buttonStatePref = getSharedPreferences("buttonState", Context.MODE_PRIVATE)
-        val buttonStateEdit = buttonStatePref.edit()
+                //a boolean variable will be stored and pass to CreateNewTracker.kt to disable
+                //selectTracker1 button
+                val buttonStatePref = getSharedPreferences("buttonState", Context.MODE_PRIVATE)
+                val buttonStateEdit = buttonStatePref.edit()
+
+                buttonStateEdit.putBoolean("booleanVar", false)
+                buttonStateEdit.apply()
+
+                Toast.makeText(applicationContext, "Tracker has been made", Toast.LENGTH_SHORT)
+                    .show()
 
 
-        buttonStateEdit.putBoolean("booleanVar", false)
-
-        buttonStateEdit.apply()
-
-
-        val intent = Intent(this, MainActivity::class.java)
-
-        startActivity(intent)
-
+                val intent = Intent(this, MainActivity::class.java)
+                startActivity(intent)
+            }
+        }
     }
-
-
 }

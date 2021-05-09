@@ -7,7 +7,7 @@
     <string name="continueButton">Continue</string>
     <string name="aboutButton">About</string>
     <string name="createTrackerButton">create tracker</string>
-    <string name="trackerButton">Empty tracker 1</string>
+    <string name="trackerButton">Empty tracker</string>
     <string name="userInfoButton">User info</string>
     <string name="deleteMe">im a test dummy</string>
     <string name="create_tracker_1">Create tracker 1</string>
@@ -15,4 +15,6 @@
     <string name="delete">Delete</string>
     <string name="disableTextTracker1">tracker 1 currently active</string>
     <string name="enter">Enter</string>
+    <string name="first_name">First name</string>
+    <string name="project_name">Project name</string>
 </resources>
