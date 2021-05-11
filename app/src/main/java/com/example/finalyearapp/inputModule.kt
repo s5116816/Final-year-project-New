@@ -133,6 +133,16 @@ class inputModule : AppCompatActivity() {
                 buttonStateEdit.putBoolean("booleanVar", false)
                 buttonStateEdit.apply()
 
+
+                //Storing a true boolean in unlockTracker pref
+                //which will be used to allow trackerButton1 in mainMenu module to be clickable
+                val unlockTrackerPref = getSharedPreferences("unlockTracker", Context.MODE_PRIVATE)
+                val unlockTrackerEdit = unlockTrackerPref.edit()
+
+                unlockTrackerEdit.putBoolean("trackerButton1", true)
+                unlockTrackerEdit.apply()
+
+
                 Toast.makeText(applicationContext, "Tracker has been made", Toast.LENGTH_SHORT)
                     .show()
 

@@ -47,7 +47,6 @@
             android:id="@+id/trackerButton1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="toTracker"
             android:text="@string/trackerButton" />
     </LinearLayout>
 

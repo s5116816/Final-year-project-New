@@ -51,7 +51,6 @@ class trackerModule : AppCompatActivity() {
         // variable holding "names" sharedPreferences
         val namesPref = applicationContext.getSharedPreferences("names", Context.MODE_PRIVATE)
 
-
         //getting the user's name and project title
         val getUserName = namesPref.getString("userName", "")
         val getProjectName = namesPref.getString("projectName", "")
@@ -60,8 +59,6 @@ class trackerModule : AppCompatActivity() {
         projectTitle.text = getProjectName
         userName.text = getUserName
 
-
-        
 
         //deletes the tracker
         deleteTracker.setOnClickListener() {
@@ -86,7 +83,6 @@ class trackerModule : AppCompatActivity() {
             editNames.apply()
 
 
-
             //code to re-enable access to createTracker1 button in CreateNewTracker.kt
             val buttonStatePref = getSharedPreferences("buttonState", Context.MODE_PRIVATE)
             val buttonStateEdit = buttonStatePref.edit()
@@ -95,6 +91,17 @@ class trackerModule : AppCompatActivity() {
 
             buttonStateEdit.apply()
 
+
+            //code to disable the button that can access this module after tracker deletion
+            val unlockTrackerPref = getSharedPreferences("unlockTracker", Context.MODE_PRIVATE)
+            val unlockTrackerEdit = unlockTrackerPref.edit()
+
+            unlockTrackerEdit.putBoolean("trackerButton1", false)
+
+            unlockTrackerEdit.apply()
+
+
+            //might delete
             circleProgressBar.progress = 0
 
 
@@ -139,7 +146,6 @@ class trackerModule : AppCompatActivity() {
 
             // boolean initialized as false as buttons don't have a green color once made
             var isGreen = false
-
 
 
             // gives buttons an onclickListener to be able to increase or degrease progress in
