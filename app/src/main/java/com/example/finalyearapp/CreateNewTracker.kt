@@ -29,6 +29,7 @@ class CreateNewTracker : AppCompatActivity() {
         val createTrackerButton4 = createTrackerPref.getBoolean("createTrackerButton4", true)
         val createTrackerButton5 = createTrackerPref.getBoolean("createTrackerButton5", true)
         val createTrackerButton6 = createTrackerPref.getBoolean("createTrackerButton6", true)
+        val createTrackerButton7 = createTrackerPref.getBoolean("createTrackerButton7",true)
 
 
         //check if tracker one has been made
@@ -114,6 +115,19 @@ class CreateNewTracker : AppCompatActivity() {
 
         }
 
+        if (!createTrackerButton7){
+
+            createTracker7.isEnabled = false
+            createTracker7.text = getString(R.string.disableTextTracker)
+
+        }
+        else if (createTrackerButton7){
+
+            createTracker7.isEnabled = true
+            createTracker7.text = getString(R.string.create_tracker_7)
+
+        }
+
 
 
 
@@ -157,6 +171,13 @@ class CreateNewTracker : AppCompatActivity() {
         createTracker6.setOnClickListener(){
 
             val intent = Intent(this, inputModule6::class.java)
+            startActivity(intent)
+
+        }
+
+        createTracker7.setOnClickListener(){
+
+            val intent = Intent(this, inputModule7::class.java)
             startActivity(intent)
 
         }
