@@ -18,17 +18,17 @@ class inputModule : AppCompatActivity() {
 
         //allows textViews to scroll vertically
         val chapterScrollable: TextView = findViewById(R.id.chapterTextView)
-        val artefactScrollable: TextView = findViewById(R.id.artefactTextView)
+        val artifactScrollable: TextView = findViewById(R.id.artefactTextView)
         chapterScrollable.movementMethod = ScrollingMovementMethod()
-        artefactScrollable.movementMethod = ScrollingMovementMethod()
+        artifactScrollable.movementMethod = ScrollingMovementMethod()
     }
 
-    //store list of chapters from each user input
-    var chapterList = arrayListOf<String>()
+    //store list of tasks from each user input
+    var taskList = arrayListOf<String>()
 
 
     //gets input from chapterUserInput and outputs it in chapterTextView.
-    // Each input will be added in the array of chapterlist
+    // Each input will be added in the array of taskList
     fun addToChapter(view: View) {
 
         //variables holding chapterUserInput and chapterTextView
@@ -39,38 +39,48 @@ class inputModule : AppCompatActivity() {
         val userInput1 = chapterUserInput.text.toString()
 
 
-        //adds the string into the Textview
-        chapterTextView.append(userInput1)
-        chapterTextView.append("\n")
-
-        //string will be added to array
-        chapterList.add(userInput1)
-
-        //removes string from array if string is empty
+        //toast message if converted string is empty
         if (userInput1 == "") {
 
-            chapterList.remove(userInput1)
+            Toast.makeText(applicationContext, "enter your chapter name", Toast.LENGTH_SHORT)
+                .show()
+
+        } else {
+
+            //adds the string into the Textview
+            chapterTextView.append(userInput1)
+            chapterTextView.append("\n")
+
+            //string will be added to array
+            taskList.add(userInput1)
+
         }
+
+
     }
 
+
     // same process as addToChapter function
-    fun addToArtefact(view: View) {
+    fun addToArtifact(view: View) {
 
-        val moduleUserInput = findViewById<EditText>(R.id.artefactUserInput)
-        val moduleTextView = findViewById<TextView>(R.id.artefactTextView)
+        val artifactUserInput = findViewById<EditText>(R.id.artifactUserInput)
+        val artifactTextView = findViewById<TextView>(R.id.artefactTextView)
 
-        val userInput2 = moduleUserInput.text.toString()
-
-        moduleTextView.append(userInput2)
-        moduleTextView.append("\n")
-
-        chapterList.add(userInput2)
-
+        val userInput2 = artifactUserInput.text.toString()
 
         if (userInput2 == "") {
 
-            chapterList.remove(userInput2)
+            Toast.makeText(applicationContext, "enter your task", Toast.LENGTH_SHORT)
+                .show()
+
+        } else {
+
+            artifactTextView.append(userInput2)
+            artifactTextView.append("\n")
+
+            taskList.add(userInput2)
         }
+
     }
 
 
@@ -95,42 +105,42 @@ class inputModule : AppCompatActivity() {
             ).show()
         } else {
 
-            //storing the user name and project name into "name" sharedpreferences
+            //storing the user name and project name into "names" sharedpreferences
             val mypref = getSharedPreferences("names", Context.MODE_PRIVATE)
             val edit = mypref.edit()
 
-            edit.putString("userName", stringName)
-            edit.putString("projectName", stringPName)
+            edit.putString("userName1", stringName)
+            edit.putString("projectName1", stringPName)
 
             edit.apply()
 
-            //checks if chapterList is empty or not
-            if (chapterList.isEmpty()) {
+            //checks if taskList is empty or not
+            if (taskList.isEmpty()) {
 
                 Toast.makeText(
                     applicationContext,
-                    "please provide information for report or artefact",
+                    "please provide information for report or artifact",
                     Toast.LENGTH_LONG
                 ).show()
 
-            } else if (chapterList.isNotEmpty()) {
+            } else if (taskList.isNotEmpty()) {
 
-                //converts chapterList into a json and store in "storeArray" sharedPreference
+                //converts taskList into a json and store in "storeArray" sharedPreference
                 val myPrefs = getSharedPreferences("storeArray", Context.MODE_PRIVATE)
                 val jsonEdit = myPrefs.edit()
                 val gson = Gson()
-                val json = gson.toJson(chapterList)
+                val json = gson.toJson(taskList)
 
-                jsonEdit.putString("chapterList", json)
+                jsonEdit.putString("taskList1", json)
                 jsonEdit.apply()
 
 
                 //a boolean variable will be stored and pass to CreateNewTracker.kt to disable
                 //selectTracker1 button
-                val buttonStatePref = getSharedPreferences("buttonState", Context.MODE_PRIVATE)
+                val buttonStatePref = getSharedPreferences("testing1", Context.MODE_PRIVATE)
                 val buttonStateEdit = buttonStatePref.edit()
 
-                buttonStateEdit.putBoolean("booleanVar", false)
+                buttonStateEdit.putBoolean("testing2", false)
                 buttonStateEdit.apply()
 
 

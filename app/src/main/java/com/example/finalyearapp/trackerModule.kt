@@ -41,53 +41,54 @@ class trackerModule : AppCompatActivity() {
         val gson = Gson()
 
         //get json from sharedPreference
-        val getJson = myPref.getString("chapterList", null)
+        val getJson = myPref.getString("taskList1", null)
 
-        //convert json chapterList back to a string array
+        //convert json taskList back to a string array
         val type = object : TypeToken<ArrayList<String>>() {}.type
-        val chapterList = gson.fromJson<ArrayList<String>>(getJson, type)
+        val taskList = gson.fromJson<ArrayList<String>>(getJson, type)
 
 
         // variable holding "names" sharedPreferences
         val namesPref = applicationContext.getSharedPreferences("names", Context.MODE_PRIVATE)
 
         //getting the user's name and project title
-        val getUserName = namesPref.getString("userName", "")
-        val getProjectName = namesPref.getString("projectName", "")
+        val getUserName = namesPref.getString("userName1", "")
+        val getProjectName = namesPref.getString("projectName1", "")
 
         //output in these textViews
         projectTitle.text = getProjectName
         userName.text = getUserName
 
 
-        //deletes the tracker
+        //deletes the tracker when clicking the delete button
         deleteTracker.setOnClickListener() {
 
             //emptying user input from array and store it in sharedPreferences
-            chapterList.clear()
+            taskList.clear()
 
 
             val deletePrefArray = getSharedPreferences("storeArray", Context.MODE_PRIVATE)
             val editArray = deletePrefArray.edit()
-            val emptyArray = gson.toJson(chapterList)
+            val emptyArray = gson.toJson(taskList)
 
-            editArray.putString("chapterList", emptyArray)
+            editArray.putString("taskList1", emptyArray)
             editArray.apply()
 
 
+            //delete current names in "names" preferences
             val deletePrefNames = getSharedPreferences("names", Context.MODE_PRIVATE)
             val editNames = deletePrefNames.edit()
 
-            editNames.putString("userName", "")
-            editNames.putString("projectName", "")
+            editNames.putString("userName1", "")
+            editNames.putString("projectName1", "")
             editNames.apply()
 
 
             //code to re-enable access to createTracker1 button in CreateNewTracker.kt
-            val buttonStatePref = getSharedPreferences("buttonState", Context.MODE_PRIVATE)
+            val buttonStatePref = getSharedPreferences("testing1", Context.MODE_PRIVATE)
             val buttonStateEdit = buttonStatePref.edit()
 
-            buttonStateEdit.putBoolean("booleanVar", true)
+            buttonStateEdit.putBoolean("testing2", true)
 
             buttonStateEdit.apply()
 
@@ -105,6 +106,7 @@ class trackerModule : AppCompatActivity() {
             circleProgressBar.progress = 0
 
 
+            //return to main menu
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
 
@@ -127,10 +129,10 @@ class trackerModule : AppCompatActivity() {
         }
 
 
-        //loops through the chapterList array to generate buttons dynamically,
+        //loops through the taskList array to generate buttons dynamically,
         //add them in the linearLayout
         // and providing setOnclicklistners for each generated button
-        for (i in chapterList) {
+        for (i in taskList) {
 
             // button created here
             val button = Button(this)
@@ -253,6 +255,14 @@ class trackerModule : AppCompatActivity() {
                             button.setBackgroundColor(Color.WHITE)
                             isGreen = false
                             progressBarUpdate()
+
+                            val colorTest = getSharedPreferences("colorTest", Context.MODE_PRIVATE)
+                            val colorTestEdit = colorTest.edit()
+
+                            colorTestEdit.putBoolean("isGreen", isGreen)
+                            colorTestEdit.apply()
+
+
                         }
                         4 -> {
                             circleProgr -= 25

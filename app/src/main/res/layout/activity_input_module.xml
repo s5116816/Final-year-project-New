@@ -8,8 +8,8 @@
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/chapterUserInput"
-        android:layout_width="174dp"
-        android:layout_height="50dp"
+        android:layout_width="272dp"
+        android:layout_height="52dp"
         android:hint="@string/report_chapter_input"
         android:inputType="text"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -20,17 +20,17 @@
         app:layout_constraintVertical_bias="0.387" />
 
     <Button
-        android:id="@+id/button"
-        android:layout_width="68dp"
-        android:layout_height="46dp"
+        android:id="@+id/addButton1"
+        android:layout_width="95dp"
+        android:layout_height="47dp"
         android:onClick="addToChapter"
         android:text="@string/add_chapter_button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.615"
+        app:layout_constraintHorizontal_bias="0.949"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.391" />
+        app:layout_constraintVertical_bias="0.39" />
 
     <TextView
         android:id="@+id/chapterTextView"
@@ -45,10 +45,10 @@
         app:layout_constraintVertical_bias="0.527" />
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/artefactUserInput"
-        android:layout_width="174dp"
-        android:layout_height="50dp"
-        android:hint="@string/userInputModule"
+        android:id="@+id/artifactUserInput"
+        android:layout_width="272dp"
+        android:layout_height="52dp"
+        android:hint="@string/userInputArtifact"
         android:inputType="text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -58,17 +58,17 @@
         app:layout_constraintVertical_bias="0.683" />
 
     <Button
-        android:id="@+id/button2"
-        android:layout_width="68dp"
-        android:layout_height="46dp"
-        android:onClick="addToArtefact"
-        android:text="@string/addModuleButton"
+        android:id="@+id/addButton2"
+        android:layout_width="95dp"
+        android:layout_height="47dp"
+        android:onClick="addToArtifact"
+        android:text="@string/addTaskButton"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.615"
+        app:layout_constraintHorizontal_bias="0.949"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.686" />
+        app:layout_constraintVertical_bias="0.681" />
 
     <TextView
         android:id="@+id/artefactTextView"
@@ -83,7 +83,7 @@
         app:layout_constraintVertical_bias="0.843" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/continueButton1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="saveData"
@@ -122,31 +122,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.12" />
-
-
-    <Button
-        android:id="@+id/chapDelete"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/delete"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.897"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.392" />
-
-    <Button
-        android:id="@+id/modDelete"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/delete"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.897"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.685" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

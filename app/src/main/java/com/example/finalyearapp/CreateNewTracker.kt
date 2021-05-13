@@ -15,8 +15,8 @@ class CreateNewTracker : AppCompatActivity() {
 
         val selectTracker1 = findViewById<Button>(R.id.selectTracker1)
 
-        val myPref = applicationContext.getSharedPreferences("buttonState", Context.MODE_PRIVATE)
-        val buttonState = myPref.getBoolean("booleanVar", true)
+        val myPref = applicationContext.getSharedPreferences("testing1", Context.MODE_PRIVATE)
+        val buttonState = myPref.getBoolean("testing2", true)
 
         //check if tracker one has been made
         if (!buttonState){

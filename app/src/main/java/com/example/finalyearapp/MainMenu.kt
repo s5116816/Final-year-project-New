@@ -19,17 +19,15 @@ class MainActivity : AppCompatActivity() {
 
         val tracker1 = myPref.getBoolean("trackerButton1", false)
 
-        if (tracker1){
+        if (tracker1) {
 
             val namePref = getSharedPreferences("names", Context.MODE_PRIVATE)
-            val name1 = namePref.getString("userName", "")
+            val name1 = namePref.getString("userName1", "")
 
             trackerButton1.isEnabled = true
             trackerButton1.text = name1
 
-
-        }
-        else if (!tracker1){
+        } else if (!tracker1) {
 
             trackerButton1.isEnabled = false
             trackerButton1.text = getText(R.string.trackerButton).toString()
@@ -37,7 +35,7 @@ class MainActivity : AppCompatActivity() {
         }
 
 
-        trackerButton1.setOnClickListener(){
+        trackerButton1.setOnClickListener() {
 
             val intent = Intent(this, trackerModule::class.java)
             startActivity(intent)
@@ -45,29 +43,25 @@ class MainActivity : AppCompatActivity() {
         }
 
 
-
-
-
-
     }
+
     //Functions below handle navigation throughout the app
-    fun toAbout(view: View){
-        val intent = Intent(this,AboutApp::class.java)
-            startActivity(intent)
+    fun toAbout(view: View) {
+        val intent = Intent(this, AboutApp::class.java)
+        startActivity(intent)
     }
 
     //button to advance to CreateNewTracker module
-    fun toCreateNewTracker(view: View){
-        val intent = Intent(this,CreateNewTracker::class.java)
+    fun toCreateNewTracker(view: View) {
+        val intent = Intent(this, CreateNewTracker::class.java)
         startActivity(intent)
     }
 
 
-    fun toUserInfo(view: View){
-        val intent = Intent(this,UserInfoModule::class.java)
+    fun toUserInfo(view: View) {
+        val intent = Intent(this, UserInfoModule::class.java)
         startActivity(intent)
     }
-
 
 
 }
