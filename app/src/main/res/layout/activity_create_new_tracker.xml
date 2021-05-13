@@ -19,9 +19,7 @@
             android:id="@+id/createTracker1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/create_tracker_1"
-
-            />
+            android:text="@string/create_tracker_1" />
 
         <Button
             android:id="@+id/createTracker2"
@@ -37,6 +35,26 @@
 
         <Button
             android:id="@+id/createTracker4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/create_tracker_1"
+
+            />
+
+        <Button
+            android:id="@+id/createTracker5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/create_tracker_1" />
+
+        <Button
+            android:id="@+id/createTracker6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/create_tracker_1" />
+
+        <Button
+            android:id="@+id/createTracker7"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/create_tracker_1" />

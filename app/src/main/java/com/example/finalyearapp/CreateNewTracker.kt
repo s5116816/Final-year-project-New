@@ -17,12 +17,18 @@ class CreateNewTracker : AppCompatActivity() {
         val createTracker2 = findViewById<Button>(R.id.createTracker2)
         val createTracker3 = findViewById<Button>(R.id.createTracker3)
         val createTracker4 = findViewById<Button>(R.id.createTracker4)
+        val createTracker5 = findViewById<Button>(R.id.createTracker5)
+        val createTracker6 = findViewById<Button>(R.id.createTracker6)
+        val createTracker7 = findViewById<Button>(R.id.createTracker7)
+
 
         val createTrackerPref = applicationContext.getSharedPreferences("createTrackerButtons", Context.MODE_PRIVATE)
         val createTrackerButton1 = createTrackerPref.getBoolean("createTrackerButton1", true)
         val createTrackerButton2 = createTrackerPref.getBoolean("createTrackerButton2", true)
         val createTrackerButton3 = createTrackerPref.getBoolean("createTrackerButton3", true)
         val createTrackerButton4 = createTrackerPref.getBoolean("createTrackerButton4", true)
+        val createTrackerButton5 = createTrackerPref.getBoolean("createTrackerButton5", true)
+
 
         //check if tracker one has been made
         if (!createTrackerButton1){
@@ -80,6 +86,24 @@ class CreateNewTracker : AppCompatActivity() {
 
         }
 
+        //check if tracker one has been made
+        if (!createTrackerButton5){
+
+            createTracker5.isEnabled = false
+            createTracker5.text = getString(R.string.disableTextTracker)
+
+        }
+        else if (createTrackerButton5){
+
+            createTracker5.isEnabled = true
+            createTracker5.text = getString(R.string.create_tracker_5)
+
+        }
+
+
+
+
+
         //Button accessing their respective input modules
         createTracker1.setOnClickListener(){
 
@@ -105,6 +129,13 @@ class CreateNewTracker : AppCompatActivity() {
         createTracker4.setOnClickListener(){
 
             val intent = Intent(this, inputModule4::class.java)
+            startActivity(intent)
+
+        }
+
+        createTracker5.setOnClickListener(){
+
+            val intent = Intent(this, inputModule5::class.java)
             startActivity(intent)
 
         }

@@ -66,6 +66,24 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/trackerButton" />
+
+        <Button
+            android:id="@+id/trackerButton5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/trackerButton" />
+
+        <Button
+            android:id="@+id/trackerButton6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/trackerButton" />
+
+        <Button
+            android:id="@+id/trackerButton7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/trackerButton" />
     </LinearLayout>
 
 

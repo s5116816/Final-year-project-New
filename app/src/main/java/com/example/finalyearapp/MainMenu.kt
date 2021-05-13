@@ -17,12 +17,16 @@ class MainActivity : AppCompatActivity() {
         val trackerButton2 = findViewById<Button>(R.id.trackerButton2)
         val trackerButton3 = findViewById<Button>(R.id.trackerButton3)
         val trackerButton4 = findViewById<Button>(R.id.trackerButton4)
+        val trackerButton5 = findViewById<Button>(R.id.trackerButton5)
+        val trackerButton6 = findViewById<Button>(R.id.trackerButton6)
+        val trackerButton7 = findViewById<Button>(R.id.trackerButton7)
 
         val unlockTrackerPref = getSharedPreferences("unlockTracker", Context.MODE_PRIVATE)
         val tracker1 = unlockTrackerPref.getBoolean("tracker1", false)
         val tracker2 = unlockTrackerPref.getBoolean("tracker2", false)
         val tracker3 = unlockTrackerPref.getBoolean("tracker3", false)
         val tracker4 = unlockTrackerPref.getBoolean("tracker4", false)
+        val tracker5 = unlockTrackerPref.getBoolean("tracker5", false)
 
 
         if (tracker1) {
@@ -81,10 +85,26 @@ class MainActivity : AppCompatActivity() {
             trackerButton4.text = name4
 
         }
-        if (!tracker4) {
+         else if (!tracker4) {
 
             trackerButton4.isEnabled = false
             trackerButton4.text = getText(R.string.trackerButton).toString()
+
+        }
+
+        if (tracker5){
+
+            val namePref = getSharedPreferences("names", Context.MODE_PRIVATE)
+            val name5 = namePref.getString("userName5", "")
+
+            trackerButton5.isEnabled = true
+            trackerButton5.text = name5
+
+        }
+        else if (!tracker5){
+
+            trackerButton5.isEnabled = false
+            trackerButton5.text = getText(R.string.trackerButton).toString()
 
         }
 
@@ -115,6 +135,13 @@ class MainActivity : AppCompatActivity() {
         trackerButton4.setOnClickListener() {
 
             val intent = Intent(this, trackerModule4::class.java)
+            startActivity(intent)
+
+        }
+
+        trackerButton5.setOnClickListener(){
+
+            val intent = Intent(this, trackerModule5::class.java)
             startActivity(intent)
 
         }
