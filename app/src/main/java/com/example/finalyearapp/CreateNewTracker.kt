@@ -67,6 +67,19 @@ class CreateNewTracker : AppCompatActivity() {
 
         }
 
+        if (!createTrackerButton4){
+
+            createTracker4.isEnabled = false
+            createTracker4.text = getString(R.string.disableTextTracker)
+
+        }
+        else if (createTrackerButton4){
+
+            createTracker4.isEnabled = true
+            createTracker4.text = getString(R.string.create_tracker_4)
+
+        }
+
         //Button accessing their respective input modules
         createTracker1.setOnClickListener(){
 
@@ -85,6 +98,13 @@ class CreateNewTracker : AppCompatActivity() {
         createTracker3.setOnClickListener(){
 
             val intent = Intent(this, inputModule3::class.java)
+            startActivity(intent)
+
+        }
+
+        createTracker4.setOnClickListener(){
+
+            val intent = Intent(this, inputModule4::class.java)
             startActivity(intent)
 
         }
