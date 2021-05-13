@@ -27,6 +27,7 @@ class MainActivity : AppCompatActivity() {
         val tracker3 = unlockTrackerPref.getBoolean("tracker3", false)
         val tracker4 = unlockTrackerPref.getBoolean("tracker4", false)
         val tracker5 = unlockTrackerPref.getBoolean("tracker5", false)
+        val tracker6 = unlockTrackerPref.getBoolean("tracker6",false)
 
 
         if (tracker1) {
@@ -109,6 +110,22 @@ class MainActivity : AppCompatActivity() {
         }
 
 
+        if (tracker6) {
+
+            val namePref = getSharedPreferences("names", Context.MODE_PRIVATE)
+            val name6 = namePref.getString("userName6", "")
+
+            trackerButton6.isEnabled = true
+            trackerButton6.text = name6
+
+        } else if (!tracker6) {
+
+            trackerButton6.isEnabled = false
+            trackerButton6.text = getText(R.string.trackerButton).toString()
+
+        }
+
+
 
         trackerButton1.setOnClickListener() {
 
@@ -142,6 +159,13 @@ class MainActivity : AppCompatActivity() {
         trackerButton5.setOnClickListener(){
 
             val intent = Intent(this, trackerModule5::class.java)
+            startActivity(intent)
+
+        }
+
+        trackerButton6.setOnClickListener(){
+
+            val intent = Intent(this, trackerModule6::class.java)
             startActivity(intent)
 
         }

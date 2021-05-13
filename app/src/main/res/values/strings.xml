@@ -15,6 +15,7 @@
     <string name="create_tracker_3">Create tracker 3</string>
     <string name="create_tracker_4">Create tracker 4</string>
     <string name="create_tracker_5">Create tracker 5</string>
+    <string name="create_tracker_6">Create tracker 6</string>
     <string name="saveButtonString">Save</string>
     <string name="delete">Delete</string>
     <string name="disableTextTracker">This tracker is currently active</string>
