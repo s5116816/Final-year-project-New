@@ -12,6 +12,7 @@
     <string name="deleteMe">im a test dummy</string>
     <string name="create_tracker_1">Create tracker 1</string>
     <string name="create_tracker_2">Create tracker 2</string>
+    <string name="create_tracker_3">Create tracker 3</string>
     <string name="saveButtonString">Save</string>
     <string name="delete">Delete</string>
     <string name="disableTextTracker">This tracker is currently active</string>

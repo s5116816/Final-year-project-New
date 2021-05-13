@@ -15,10 +15,14 @@ class MainActivity : AppCompatActivity() {
         //variable holding buttons to trackers
         val trackerButton1 = findViewById<Button>(R.id.trackerButton1)
         val trackerButton2 = findViewById<Button>(R.id.trackerButton2)
+        val trackerButton3 = findViewById<Button>(R.id.trackerButton3)
+        val trackerButton4 = findViewById<Button>(R.id.trackerButton4)
 
         val unlockTrackerPref = getSharedPreferences("unlockTracker", Context.MODE_PRIVATE)
         val tracker1 = unlockTrackerPref.getBoolean("tracker1", false)
         val tracker2 = unlockTrackerPref.getBoolean("tracker2", false)
+        val tracker3 = unlockTrackerPref.getBoolean("tracker3", false)
+
 
         if (tracker1) {
 
@@ -35,7 +39,7 @@ class MainActivity : AppCompatActivity() {
 
         }
 
-        if (tracker2){
+        if (tracker2) {
 
             val namePref = getSharedPreferences("names", Context.MODE_PRIVATE)
             val name2 = namePref.getString("userName2", "")
@@ -43,11 +47,27 @@ class MainActivity : AppCompatActivity() {
             trackerButton2.isEnabled = true
             trackerButton2.text = name2
 
-        }
-        else if (!tracker2){
+        } else if (!tracker2) {
 
             trackerButton2.isEnabled = false
             trackerButton2.text = getText(R.string.trackerButton).toString()
+
+        }
+
+
+        if (tracker3) {
+
+            val namePref = getSharedPreferences("names", Context.MODE_PRIVATE)
+            val name2 = namePref.getString("userName3", "")
+
+            trackerButton3.isEnabled = true
+            trackerButton3.text = name2
+
+
+        } else if (!tracker3) {
+
+            trackerButton3.isEnabled = false
+            trackerButton3.text = getText(R.string.trackerButton).toString()
 
         }
 
@@ -60,7 +80,7 @@ class MainActivity : AppCompatActivity() {
 
         }
 
-        trackerButton2.setOnClickListener(){
+        trackerButton2.setOnClickListener() {
 
             val intent = Intent(this, trackerModule2::class.java)
             startActivity(intent)
@@ -68,6 +88,12 @@ class MainActivity : AppCompatActivity() {
         }
 
 
+        trackerButton3.setOnClickListener() {
+
+            val intent = Intent(this, trackerModule3::class.java)
+            startActivity(intent)
+
+        }
 
 
     }
