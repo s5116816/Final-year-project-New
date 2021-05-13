@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".trackerModule">
+    tools:context=".trackerModule2">
 
     <ProgressBar
-        android:id="@+id/circleProgressBar1"
+        android:id="@+id/circleProgressBar2"
         android:layout_width="200dp"
         android:layout_height="200dp"
         android:indeterminateOnly="false"
@@ -19,7 +19,7 @@
         app:layout_constraintVertical_bias="0.252" />
 
     <ScrollView
-        android:id="@+id/scrollableTrackerList1"
+        android:id="@+id/scrollableTrackerList2"
         android:layout_width="377dp"
         android:layout_height="166dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -30,7 +30,7 @@
         app:layout_constraintVertical_bias="0.805">
 
         <LinearLayout
-            android:id="@+id/trackerList1"
+            android:id="@+id/trackerList2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical">
@@ -39,17 +39,17 @@
     </ScrollView>
 
     <TextView
-        android:id="@+id/textView_progressPercentage1"
+        android:id="@+id/textView_progressPercentage2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@+id/circleProgressBar1"
-        app:layout_constraintEnd_toEndOf="@+id/circleProgressBar1"
-        app:layout_constraintStart_toStartOf="@+id/circleProgressBar1"
-        app:layout_constraintTop_toTopOf="@+id/circleProgressBar1" />
+        app:layout_constraintBottom_toBottomOf="@+id/circleProgressBar2"
+        app:layout_constraintEnd_toEndOf="@+id/circleProgressBar2"
+        app:layout_constraintStart_toStartOf="@+id/circleProgressBar2"
+        app:layout_constraintTop_toTopOf="@+id/circleProgressBar2" />
 
 
     <Button
-        android:id="@+id/deleteButton1"
+        android:id="@+id/deleteButton2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/delete"
@@ -61,13 +61,13 @@
         app:layout_constraintVertical_bias="0.976" />
 
     <TextView
-        android:id="@+id/userName1"
+        android:id="@+id/userName2"
         android:layout_width="307dp"
         android:layout_height="40dp"
         android:gravity="center"
         android:textSize="15sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/circleProgressBar1"
+        app:layout_constraintBottom_toTopOf="@+id/circleProgressBar2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
@@ -75,16 +75,16 @@
         app:layout_constraintVertical_bias="0.163" />
 
     <TextView
-        android:id="@+id/projectTitle1"
+        android:id="@+id/projectTitle2"
         android:layout_width="402dp"
         android:layout_height="54dp"
         android:gravity="center"
         android:textSize="15sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/circleProgressBar1"
+        app:layout_constraintBottom_toTopOf="@+id/circleProgressBar2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/userName1" />
+        app:layout_constraintTop_toBottomOf="@+id/userName2" />
 
     <TextView
         android:id="@+id/textView"
@@ -96,9 +96,10 @@
         android:textColor="@color/white"
         android:textStyle="bold"
         android:background="@color/purple_500"
-        app:layout_constraintBottom_toTopOf="@+id/scrollableTrackerList1"
+        app:layout_constraintBottom_toTopOf="@+id/scrollableTrackerList2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/circleProgressBar1"
+        app:layout_constraintTop_toBottomOf="@+id/circleProgressBar2"
         app:layout_constraintVertical_bias="1.0" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

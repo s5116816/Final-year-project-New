@@ -11,9 +11,10 @@
     <string name="userInfoButton">User info</string>
     <string name="deleteMe">im a test dummy</string>
     <string name="create_tracker_1">Create tracker 1</string>
+    <string name="create_tracker_2">Create tracker 2</string>
     <string name="saveButtonString">Save</string>
     <string name="delete">Delete</string>
-    <string name="disableTextTracker1">tracker 1 currently active</string>
+    <string name="disableTextTracker">This tracker is currently active</string>
     <string name="enter">Enter</string>
     <string name="first_name">First name</string>
     <string name="project_name">Project name</string>

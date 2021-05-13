@@ -9,8 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.FinalYearApp">
-        <activity android:name=".CreateNewTracker"></activity>
-        <activity android:name=".userInfoModule" />
+        <activity android:name=".trackerModule2"></activity>
+        <activity
+            android:name=".inputModule2"
+            android:windowSoftInputMode="adjustPan"
+            />
+        <activity android:name=".CreateNewTracker" />
+        <activity android:name=".UserInfoModule" />
         <activity android:name=".trackerModule" />
         <activity
             android:name=".inputModule"

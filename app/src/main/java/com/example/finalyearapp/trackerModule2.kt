@@ -5,8 +5,6 @@ import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.Gravity
-import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.LinearLayout
@@ -15,20 +13,18 @@ import android.widget.TextView
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 
-class trackerModule : AppCompatActivity() {
-
-
+class trackerModule2 : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_tracker_module)
+        setContentView(R.layout.activity_tracker_module2)
 
 
         //my XML variables from this module's view
-        val scrollableList: LinearLayout = findViewById(R.id.trackerList1)
-        val deleteTracker = findViewById<Button>(R.id.deleteButton1)
-        val circleProgressBar = findViewById<ProgressBar>(R.id.circleProgressBar1)
-        val projectTitle = findViewById<TextView>(R.id.projectTitle1)
-        val userName = findViewById<TextView>(R.id.userName1)
+        val scrollableList: LinearLayout = findViewById(R.id.trackerList2)
+        val deleteTracker = findViewById<Button>(R.id.deleteButton2)
+        val circleProgressBar = findViewById<ProgressBar>(R.id.circleProgressBar2)
+        val projectTitle = findViewById<TextView>(R.id.projectTitle2)
+        val userName = findViewById<TextView>(R.id.userName2)
 
 
         //buttonValue store current amount of generated buttons
@@ -42,7 +38,7 @@ class trackerModule : AppCompatActivity() {
         val gson = Gson()
 
         //get json from sharedPreference
-        val getJson = arrayPref.getString("taskList1", null)
+        val getJson = arrayPref.getString("taskList2", null)
 
         //convert json taskList back to a string array
         val type = object : TypeToken<ArrayList<String>>() {}.type
@@ -54,8 +50,8 @@ class trackerModule : AppCompatActivity() {
         val namesPref = applicationContext.getSharedPreferences("names", Context.MODE_PRIVATE)
 
         //getting the user's name and project title
-        val getUserName = namesPref.getString("userName1", "")
-        val getProjectName = namesPref.getString("projectName1", "")
+        val getUserName = namesPref.getString("userName2", "")
+        val getProjectName = namesPref.getString("projectName2", "")
 
         //output in these textViews
         projectTitle.text = getProjectName
@@ -73,7 +69,7 @@ class trackerModule : AppCompatActivity() {
             val editArray = deletePrefArray.edit()
             val emptyArray = gson.toJson(taskList)
 
-            editArray.putString("taskList1", emptyArray)
+            editArray.putString("taskList2", emptyArray)
             editArray.apply()
 
 
@@ -81,25 +77,25 @@ class trackerModule : AppCompatActivity() {
             val deletePrefNames = getSharedPreferences("names", Context.MODE_PRIVATE)
             val editNames = deletePrefNames.edit()
 
-            editNames.putString("userName1", "")
-            editNames.putString("projectName1", "")
+            editNames.putString("userName2", "")
+            editNames.putString("projectName2", "")
             editNames.apply()
 
 
             //code to re-enable access to createTracker1 button in CreateNewTracker.kt
-            val createtrackerPref = getSharedPreferences("createTrackerButtons", Context.MODE_PRIVATE)
-            val createTrackereEdit = createtrackerPref.edit()
+            val createTrackerPref = getSharedPreferences("createTrackerButtons", Context.MODE_PRIVATE)
+            val createTrackerEdit = createTrackerPref.edit()
 
-            createTrackereEdit.putBoolean("createTrackerButton1", true)
+            createTrackerEdit.putBoolean("createTrackerButton2", true)
 
-            createTrackereEdit.apply()
+            createTrackerEdit.apply()
 
 
             //code to disable the button that can access this module after tracker deletion
             val unlockTrackerPref = getSharedPreferences("unlockTracker", Context.MODE_PRIVATE)
             val unlockTrackerEdit = unlockTrackerPref.edit()
 
-            unlockTrackerEdit.putBoolean("tracker1", false)
+            unlockTrackerEdit.putBoolean("tracker2", false)
 
             unlockTrackerEdit.apply()
 
@@ -116,7 +112,7 @@ class trackerModule : AppCompatActivity() {
 
             //my variables for progress bar and textview
             val textViewProgressPercentage =
-                findViewById<TextView>(R.id.textView_progressPercentage1)
+                findViewById<TextView>(R.id.textView_progressPercentage2)
 
 
             //outputs the progress in the progress bar

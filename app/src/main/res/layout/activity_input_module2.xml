@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".inputModule">
+    tools:context=".inputModule2">
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/chapterUserInput1"
+        android:id="@+id/chapterUserInput2"
         android:layout_width="272dp"
         android:layout_height="52dp"
         android:hint="@string/report_chapter_input"
@@ -20,7 +20,7 @@
         app:layout_constraintVertical_bias="0.387" />
 
     <Button
-        android:id="@+id/addButton1"
+        android:id="@+id/addButton3"
         android:layout_width="95dp"
         android:layout_height="47dp"
         android:onClick="addToChapter"
@@ -33,7 +33,7 @@
         app:layout_constraintVertical_bias="0.39" />
 
     <TextView
-        android:id="@+id/chapterTextView1"
+        android:id="@+id/chapterTextView2"
         android:layout_width="373dp"
         android:layout_height="105dp"
         android:scrollbars="vertical"
@@ -45,7 +45,7 @@
         app:layout_constraintVertical_bias="0.527" />
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/artifactUserInput1"
+        android:id="@+id/artifactUserInput2"
         android:layout_width="272dp"
         android:layout_height="52dp"
         android:hint="@string/userInputArtifact"
@@ -58,7 +58,7 @@
         app:layout_constraintVertical_bias="0.683" />
 
     <Button
-        android:id="@+id/addButton2"
+        android:id="@+id/addButton4"
         android:layout_width="95dp"
         android:layout_height="47dp"
         android:onClick="addToArtifact"
@@ -71,7 +71,7 @@
         app:layout_constraintVertical_bias="0.681" />
 
     <TextView
-        android:id="@+id/artefactTextView1"
+        android:id="@+id/artefactTextView2"
         android:layout_width="373dp"
         android:layout_height="105dp"
         android:scrollbars="vertical"
@@ -83,7 +83,7 @@
         app:layout_constraintVertical_bias="0.843" />
 
     <Button
-        android:id="@+id/continueButton1"
+        android:id="@+id/continueButton2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="saveData"
@@ -96,7 +96,7 @@
         app:layout_constraintVertical_bias="0.96" />
 
     <EditText
-        android:id="@+id/firstName1"
+        android:id="@+id/firstName2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -110,7 +110,7 @@
         app:layout_constraintVertical_bias="0.037" />
 
     <EditText
-        android:id="@+id/projectName1"
+        android:id="@+id/projectName2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -122,6 +122,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.12" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

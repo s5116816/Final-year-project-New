@@ -14,10 +14,11 @@ class MainActivity : AppCompatActivity() {
 
         //variable holding buttons to trackers
         val trackerButton1 = findViewById<Button>(R.id.trackerButton1)
+        val trackerButton2 = findViewById<Button>(R.id.trackerButton2)
 
         val unlockTrackerPref = getSharedPreferences("unlockTracker", Context.MODE_PRIVATE)
-
         val tracker1 = unlockTrackerPref.getBoolean("tracker1", false)
+        val tracker2 = unlockTrackerPref.getBoolean("tracker2", false)
 
         if (tracker1) {
 
@@ -34,12 +35,39 @@ class MainActivity : AppCompatActivity() {
 
         }
 
+        if (tracker2){
+
+            val namePref = getSharedPreferences("names", Context.MODE_PRIVATE)
+            val name2 = namePref.getString("userName2", "")
+
+            trackerButton2.isEnabled = true
+            trackerButton2.text = name2
+
+        }
+        else if (!tracker2){
+
+            trackerButton2.isEnabled = false
+            trackerButton2.text = getText(R.string.trackerButton).toString()
+
+        }
+
+
+
         trackerButton1.setOnClickListener() {
 
             val intent = Intent(this, trackerModule::class.java)
             startActivity(intent)
 
         }
+
+        trackerButton2.setOnClickListener(){
+
+            val intent = Intent(this, trackerModule2::class.java)
+            startActivity(intent)
+
+        }
+
+
 
 
     }

@@ -11,16 +11,17 @@ import android.widget.TextView
 import android.widget.Toast
 import com.google.gson.Gson
 
-class inputModule : AppCompatActivity() {
+class inputModule2 : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_input_module)
+        setContentView(R.layout.activity_input_module2)
 
         //allows textViews to scroll vertically
-        val chapterScrollable: TextView = findViewById(R.id.chapterTextView1)
-        val artifactScrollable: TextView = findViewById(R.id.artefactTextView1)
+        val chapterScrollable: TextView = findViewById(R.id.chapterTextView2)
+        val artifactScrollable: TextView = findViewById(R.id.artefactTextView2)
         chapterScrollable.movementMethod = ScrollingMovementMethod()
         artifactScrollable.movementMethod = ScrollingMovementMethod()
+
     }
 
     //store list of tasks from each user input
@@ -32,8 +33,8 @@ class inputModule : AppCompatActivity() {
     fun addToChapter(view: View) {
 
         //variables holding chapterUserInput and chapterTextView
-        val chapterUserInput = findViewById<EditText>(R.id.chapterUserInput1)
-        val chapterTextView = findViewById<TextView>(R.id.chapterTextView1)
+        val chapterUserInput = findViewById<EditText>(R.id.chapterUserInput2)
+        val chapterTextView = findViewById<TextView>(R.id.chapterTextView2)
 
         //converts user input to a string
         val userInput1 = chapterUserInput.text.toString()
@@ -63,8 +64,8 @@ class inputModule : AppCompatActivity() {
     // same process as addToChapter function
     fun addToArtifact(view: View) {
 
-        val artifactUserInput = findViewById<EditText>(R.id.artifactUserInput1)
-        val artifactTextView = findViewById<TextView>(R.id.artefactTextView1)
+        val artifactUserInput = findViewById<EditText>(R.id.artifactUserInput2)
+        val artifactTextView = findViewById<TextView>(R.id.artefactTextView2)
 
         val userInput2 = artifactUserInput.text.toString()
 
@@ -90,12 +91,16 @@ class inputModule : AppCompatActivity() {
         //check if taskList array size is less than 25
         if (taskList.size > 25) {
 
-            Toast.makeText(applicationContext, "limit reached! go back and try again", Toast.LENGTH_SHORT).show()
+            Toast.makeText(
+                applicationContext,
+                "limit reached! go back and try again",
+                Toast.LENGTH_SHORT
+            ).show()
         } else {
 
             //variables for name and project name
-            val firstName = findViewById<EditText>(R.id.firstName1)
-            val projectName = findViewById<EditText>(R.id.projectName1)
+            val firstName = findViewById<EditText>(R.id.firstName2)
+            val projectName = findViewById<EditText>(R.id.projectName2)
 
             //convert to string
             val stringName = firstName.text.toString()
@@ -115,8 +120,8 @@ class inputModule : AppCompatActivity() {
                 val namesPref = getSharedPreferences("names", Context.MODE_PRIVATE)
                 val namesEdit = namesPref.edit()
 
-                namesEdit.putString("userName1", stringName)
-                namesEdit.putString("projectName1", stringPName)
+                namesEdit.putString("userName2", stringName)
+                namesEdit.putString("projectName2", stringPName)
 
                 namesEdit.apply()
 
@@ -141,17 +146,18 @@ class inputModule : AppCompatActivity() {
                     val json = gson.toJson(taskList)
 
                     //storing the array here
-                    jsonEdit.putString("taskList1", json)
+                    jsonEdit.putString("taskList2", json)
                     jsonEdit.apply()
 
 
                     //a boolean variable will be stored and pass to CreateNewTracker.kt to disable
                     //selectTracker1 button
-                    val createTrackerPref = getSharedPreferences("createTrackerButtons", Context.MODE_PRIVATE)
+                    val createTrackerPref =
+                        getSharedPreferences("createTrackerButtons", Context.MODE_PRIVATE)
                     val createTrackerEdit = createTrackerPref.edit()
 
                     //storing boolean
-                    createTrackerEdit.putBoolean("createTrackerButton1", false)
+                    createTrackerEdit.putBoolean("createTrackerButton2", false)
                     createTrackerEdit.apply()
 
 
@@ -161,7 +167,7 @@ class inputModule : AppCompatActivity() {
                         getSharedPreferences("unlockTracker", Context.MODE_PRIVATE)
                     val unlockTrackerEdit = unlockTrackerPref.edit()
 
-                    unlockTrackerEdit.putBoolean("tracker1", true)
+                    unlockTrackerEdit.putBoolean("tracker2", true)
                     unlockTrackerEdit.apply()
 
 
@@ -176,3 +182,9 @@ class inputModule : AppCompatActivity() {
         }
     }
 }
+
+
+
+
+
+
