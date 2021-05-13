@@ -5,6 +5,7 @@ import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Gravity
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
@@ -37,15 +38,16 @@ class trackerModule : AppCompatActivity() {
 
 
         //variables holding sharedPreferences and Gson
-        val myPref = applicationContext.getSharedPreferences("storeArray", Context.MODE_PRIVATE)
+        val arrayPref = applicationContext.getSharedPreferences("storeArray", Context.MODE_PRIVATE)
         val gson = Gson()
 
         //get json from sharedPreference
-        val getJson = myPref.getString("taskList1", null)
+        val getJson = arrayPref.getString("taskList1", null)
 
         //convert json taskList back to a string array
         val type = object : TypeToken<ArrayList<String>>() {}.type
         val taskList = gson.fromJson<ArrayList<String>>(getJson, type)
+
 
 
         // variable holding "names" sharedPreferences
@@ -85,25 +87,21 @@ class trackerModule : AppCompatActivity() {
 
 
             //code to re-enable access to createTracker1 button in CreateNewTracker.kt
-            val buttonStatePref = getSharedPreferences("testing1", Context.MODE_PRIVATE)
-            val buttonStateEdit = buttonStatePref.edit()
+            val createtrackerPref = getSharedPreferences("createTrackerButtons", Context.MODE_PRIVATE)
+            val createTrackereEdit = createtrackerPref.edit()
 
-            buttonStateEdit.putBoolean("testing2", true)
+            createTrackereEdit.putBoolean("createTrackerButton1", true)
 
-            buttonStateEdit.apply()
+            createTrackereEdit.apply()
 
 
             //code to disable the button that can access this module after tracker deletion
             val unlockTrackerPref = getSharedPreferences("unlockTracker", Context.MODE_PRIVATE)
             val unlockTrackerEdit = unlockTrackerPref.edit()
 
-            unlockTrackerEdit.putBoolean("trackerButton1", false)
+            unlockTrackerEdit.putBoolean("tracker1", false)
 
             unlockTrackerEdit.apply()
-
-
-            //might delete
-            circleProgressBar.progress = 0
 
 
             //return to main menu
@@ -111,7 +109,6 @@ class trackerModule : AppCompatActivity() {
             startActivity(intent)
 
         }
-
 
 
         //update the progress bar in XML file based on button clicks
@@ -137,14 +134,17 @@ class trackerModule : AppCompatActivity() {
             // button created here
             val button = Button(this)
             button.layoutParams = LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.WRAP_CONTENT,
-                ViewGroup.LayoutParams.WRAP_CONTENT
-            )
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT)
+
+            // add text to button and size
             button.text = i
+            button.textSize = 15f
 
             //add button to linearLayout and increase button value by 1 increment
             scrollableList.addView(button)
             buttonValue += 1
+
 
             // boolean initialized as false as buttons don't have a green color once made
             var isGreen = false
@@ -227,6 +227,117 @@ class trackerModule : AppCompatActivity() {
                             isGreen = true
                             progressBarUpdate()
                         }
+                        11 -> {
+                            circleProgr += 9.1
+                            button.setBackgroundColor(Color.GREEN)
+                            isGreen = true
+                            progressBarUpdate()
+
+                        }
+                        12 -> {
+                            circleProgr += 8.4
+                            button.setBackgroundColor(Color.GREEN)
+                            isGreen = true
+                            progressBarUpdate()
+
+                        }
+                        13 -> {
+                            circleProgr += 7.7
+                            button.setBackgroundColor(Color.GREEN)
+                            isGreen = true
+                            progressBarUpdate()
+
+                        }
+                        14 -> {
+                            circleProgr += 7.2
+                            button.setBackgroundColor(Color.GREEN)
+                            isGreen = true
+                            progressBarUpdate()
+
+
+                        }
+                        15 -> {
+                            circleProgr += 6.7
+                            button.setBackgroundColor(Color.GREEN)
+                            isGreen = true
+                            progressBarUpdate()
+
+
+                        }
+                        16 -> {
+                            circleProgr += 6.25
+                            button.setBackgroundColor(Color.GREEN)
+                            isGreen = true
+                            progressBarUpdate()
+
+
+                        }
+                        17 -> {
+                            circleProgr += 5.9
+                            button.setBackgroundColor(Color.GREEN)
+                            isGreen = true
+                            progressBarUpdate()
+
+                        }
+                        18 -> {
+                            circleProgr += 5.6
+                            button.setBackgroundColor(Color.GREEN)
+                            isGreen = true
+                            progressBarUpdate()
+
+                        }
+                        19 -> {
+                            circleProgr += 5.3
+                            button.setBackgroundColor(Color.GREEN)
+                            isGreen = true
+                            progressBarUpdate()
+
+                        }
+                        20 -> {
+                            circleProgr += 5
+                            button.setBackgroundColor(Color.GREEN)
+                            isGreen = true
+                            progressBarUpdate()
+
+
+                        }
+                        21 -> {
+                            circleProgr += 4.8
+                            button.setBackgroundColor(Color.GREEN)
+                            isGreen = true
+                            progressBarUpdate()
+
+                        }
+                        22 -> {
+                            circleProgr += 4.55
+                            button.setBackgroundColor(Color.GREEN)
+                            isGreen = true
+                            progressBarUpdate()
+
+                        }
+                        23 -> {
+                            circleProgr += 4.35
+                            button.setBackgroundColor(Color.GREEN)
+                            isGreen = true
+                            progressBarUpdate()
+
+                        }
+                        24 -> {
+                            circleProgr += 4.2
+                            button.setBackgroundColor(Color.GREEN)
+                            isGreen = true
+                            progressBarUpdate()
+
+                        }
+                        25 -> {
+                            circleProgr += 4
+                            button.setBackgroundColor(Color.GREEN)
+                            isGreen = true
+                            progressBarUpdate()
+
+                        }
+
+
                     }
 
 
@@ -255,12 +366,6 @@ class trackerModule : AppCompatActivity() {
                             button.setBackgroundColor(Color.WHITE)
                             isGreen = false
                             progressBarUpdate()
-
-                            val colorTest = getSharedPreferences("colorTest", Context.MODE_PRIVATE)
-                            val colorTestEdit = colorTest.edit()
-
-                            colorTestEdit.putBoolean("isGreen", isGreen)
-                            colorTestEdit.apply()
 
 
                         }
@@ -310,6 +415,126 @@ class trackerModule : AppCompatActivity() {
                             button.setBackgroundColor(Color.WHITE)
                             isGreen = false
                             progressBarUpdate()
+
+                        }
+                        11 -> {
+                            circleProgr -= 9.1
+                            button.setBackgroundColor(Color.WHITE)
+                            isGreen = false
+                            progressBarUpdate()
+
+
+                        }
+                        12 -> {
+                            circleProgr -= 8.4
+                            button.setBackgroundColor(Color.WHITE)
+                            isGreen = false
+                            progressBarUpdate()
+
+
+                        }
+                        13 -> {
+                            circleProgr -= 7.7
+                            button.setBackgroundColor(Color.WHITE)
+                            isGreen = false
+                            progressBarUpdate()
+
+
+                        }
+                        14 -> {
+                            circleProgr -= 7.2
+                            button.setBackgroundColor(Color.WHITE)
+                            isGreen = false
+                            progressBarUpdate()
+
+
+                        }
+                        15 -> {
+                            circleProgr -= 6.7
+                            button.setBackgroundColor(Color.WHITE)
+                            isGreen = false
+                            progressBarUpdate()
+
+
+                        }
+                        16 -> {
+                            circleProgr -= 6.25
+                            button.setBackgroundColor(Color.WHITE)
+                            isGreen = false
+                            progressBarUpdate()
+
+
+                        }
+                        17 -> {
+                            circleProgr -= 5.9
+                            button.setBackgroundColor(Color.WHITE)
+                            isGreen = false
+                            progressBarUpdate()
+
+
+                        }
+                        18 -> {
+                            circleProgr -= 5.6
+                            button.setBackgroundColor(Color.WHITE)
+                            isGreen = false
+                            progressBarUpdate()
+
+
+                        }
+                        19 -> {
+                            circleProgr -= 5.3
+                            button.setBackgroundColor(Color.WHITE)
+                            isGreen = false
+                            progressBarUpdate()
+
+
+                        }
+                        20 -> {
+                            circleProgr -= 5
+                            button.setBackgroundColor(Color.WHITE)
+                            isGreen = false
+                            progressBarUpdate()
+
+
+                        }
+                        21 -> {
+                            circleProgr -= 4.8
+                            button.setBackgroundColor(Color.WHITE)
+                            isGreen = false
+                            progressBarUpdate()
+
+
+                        }
+                        22 -> {
+                            circleProgr -= 4.55
+                            button.setBackgroundColor(Color.WHITE)
+                            isGreen = false
+                            progressBarUpdate()
+
+
+                        }
+                        23 -> {
+                            circleProgr -= 4.35
+                            button.setBackgroundColor(Color.WHITE)
+                            isGreen = false
+                            progressBarUpdate()
+
+
+                        }
+                        24 -> {
+                            circleProgr -= 4.2
+                            button.setBackgroundColor(Color.WHITE)
+                            isGreen = false
+                            progressBarUpdate()
+
+
+                        }
+                        25 -> {
+                            circleProgr -= 4
+                            button.setBackgroundColor(Color.WHITE)
+                            isGreen = false
+                            progressBarUpdate()
+
 
                         }
                     }

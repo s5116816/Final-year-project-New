@@ -15,9 +15,9 @@ class MainActivity : AppCompatActivity() {
         //variable holding buttons to trackers
         val trackerButton1 = findViewById<Button>(R.id.trackerButton1)
 
-        val myPref = getSharedPreferences("unlockTracker", Context.MODE_PRIVATE)
+        val unlockTrackerPref = getSharedPreferences("unlockTracker", Context.MODE_PRIVATE)
 
-        val tracker1 = myPref.getBoolean("trackerButton1", false)
+        val tracker1 = unlockTrackerPref.getBoolean("tracker1", false)
 
         if (tracker1) {
 
@@ -33,7 +33,6 @@ class MainActivity : AppCompatActivity() {
             trackerButton1.text = getText(R.string.trackerButton).toString()
 
         }
-
 
         trackerButton1.setOnClickListener() {
 

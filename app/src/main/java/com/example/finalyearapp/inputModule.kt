@@ -87,78 +87,91 @@ class inputModule : AppCompatActivity() {
     //saves all of the entered details to make the tracker
     fun saveData(view: View) {
 
-        //variables for name and project name
-        val firstName = findViewById<EditText>(R.id.firstName)
-        val projectName = findViewById<EditText>(R.id.projectName)
+        //check if taskList array size is less than 25
+        if (taskList.size > 25) {
 
-        //convert to string
-        val stringName = firstName.text.toString()
-        val stringPName = projectName.text.toString()
-
-        //checks if string variables are empty or not
-        if (stringName.isEmpty() && stringPName.isEmpty() || stringName.isEmpty() || stringPName.isEmpty()) {
-
-            Toast.makeText(
-                applicationContext,
-                "please type in your name and project title",
-                Toast.LENGTH_LONG
-            ).show()
+            Toast.makeText(applicationContext, "limit reached! go back and try again", Toast.LENGTH_SHORT).show()
         } else {
 
-            //storing the user name and project name into "names" sharedpreferences
-            val mypref = getSharedPreferences("names", Context.MODE_PRIVATE)
-            val edit = mypref.edit()
+            //variables for name and project name
+            val firstName = findViewById<EditText>(R.id.firstName)
+            val projectName = findViewById<EditText>(R.id.projectName)
 
-            edit.putString("userName1", stringName)
-            edit.putString("projectName1", stringPName)
+            //convert to string
+            val stringName = firstName.text.toString()
+            val stringPName = projectName.text.toString()
 
-            edit.apply()
-
-            //checks if taskList is empty or not
-            if (taskList.isEmpty()) {
+            //checks if string variables are empty or not
+            if (stringName.isEmpty() && stringPName.isEmpty() || stringName.isEmpty() || stringPName.isEmpty()) {
 
                 Toast.makeText(
                     applicationContext,
-                    "please provide information for report or artifact",
+                    "please type in your name and project title",
                     Toast.LENGTH_LONG
                 ).show()
+            } else {
 
-            } else if (taskList.isNotEmpty()) {
+                //storing the user name and project name into "names" sharedpreferences
+                val namesPref = getSharedPreferences("names", Context.MODE_PRIVATE)
+                val namesEdit = namesPref.edit()
 
-                //converts taskList into a json and store in "storeArray" sharedPreference
-                val myPrefs = getSharedPreferences("storeArray", Context.MODE_PRIVATE)
-                val jsonEdit = myPrefs.edit()
-                val gson = Gson()
-                val json = gson.toJson(taskList)
+                namesEdit.putString("userName1", stringName)
+                namesEdit.putString("projectName1", stringPName)
 
-                jsonEdit.putString("taskList1", json)
-                jsonEdit.apply()
-
-
-                //a boolean variable will be stored and pass to CreateNewTracker.kt to disable
-                //selectTracker1 button
-                val buttonStatePref = getSharedPreferences("testing1", Context.MODE_PRIVATE)
-                val buttonStateEdit = buttonStatePref.edit()
-
-                buttonStateEdit.putBoolean("testing2", false)
-                buttonStateEdit.apply()
+                namesEdit.apply()
 
 
-                //Storing a true boolean in unlockTracker pref
-                //which will be used to allow trackerButton1 in mainMenu module to be clickable
-                val unlockTrackerPref = getSharedPreferences("unlockTracker", Context.MODE_PRIVATE)
-                val unlockTrackerEdit = unlockTrackerPref.edit()
+                //checks if taskList is empty or not
+                if (taskList.isEmpty()) {
 
-                unlockTrackerEdit.putBoolean("trackerButton1", true)
-                unlockTrackerEdit.apply()
-
-
-                Toast.makeText(applicationContext, "Tracker has been made", Toast.LENGTH_SHORT)
-                    .show()
+                    Toast.makeText(
+                        applicationContext,
+                        "please provide information for report or artifact",
+                        Toast.LENGTH_LONG
+                    ).show()
 
 
-                val intent = Intent(this, MainActivity::class.java)
-                startActivity(intent)
+                } else if (taskList.isNotEmpty()) {
+
+
+                    //converts taskList into a json and store in "storeArray" sharedPreference
+                    val arrayPrefs = getSharedPreferences("storeArray", Context.MODE_PRIVATE)
+                    val jsonEdit = arrayPrefs.edit()
+                    val gson = Gson()
+                    val json = gson.toJson(taskList)
+
+                    //storing the array here
+                    jsonEdit.putString("taskList1", json)
+                    jsonEdit.apply()
+
+
+                    //a boolean variable will be stored and pass to CreateNewTracker.kt to disable
+                    //selectTracker1 button
+                    val createTrackerPref = getSharedPreferences("createTrackerButtons", Context.MODE_PRIVATE)
+                    val createTrackerEdit = createTrackerPref.edit()
+
+                    //storing boolean
+                    createTrackerEdit.putBoolean("createTrackerButton1", false)
+                    createTrackerEdit.apply()
+
+
+                    //Storing a true boolean in unlockTracker pref
+                    //which will be used to allow trackerButton1 in mainMenu module to be clickable
+                    val unlockTrackerPref =
+                        getSharedPreferences("unlockTracker", Context.MODE_PRIVATE)
+                    val unlockTrackerEdit = unlockTrackerPref.edit()
+
+                    unlockTrackerEdit.putBoolean("tracker1", true)
+                    unlockTrackerEdit.apply()
+
+
+                    Toast.makeText(applicationContext, "Tracker has been made", Toast.LENGTH_SHORT)
+                        .show()
+
+
+                    val intent = Intent(this, MainActivity::class.java)
+                    startActivity(intent)
+                }
             }
         }
     }

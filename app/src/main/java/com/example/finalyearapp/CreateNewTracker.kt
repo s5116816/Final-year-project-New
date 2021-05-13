@@ -13,27 +13,27 @@ class CreateNewTracker : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_create_new_tracker)
 
-        val selectTracker1 = findViewById<Button>(R.id.selectTracker1)
+        val createTracker1 = findViewById<Button>(R.id.createTracker1)
 
-        val myPref = applicationContext.getSharedPreferences("testing1", Context.MODE_PRIVATE)
-        val buttonState = myPref.getBoolean("testing2", true)
+        val createTrackerPref = applicationContext.getSharedPreferences("createTrackerButtons", Context.MODE_PRIVATE)
+        val createTrackerButton1 = createTrackerPref.getBoolean("createTrackerButton1", true)
 
         //check if tracker one has been made
-        if (!buttonState){
+        if (!createTrackerButton1){
 
-            selectTracker1.isEnabled = false
-            selectTracker1.text = getString(R.string.disableTextTracker1)
-
-        }
-        else if (buttonState){
-
-            selectTracker1.isEnabled = true
-            selectTracker1.text = getString(R.string.create_tracker_1)
+            createTracker1.isEnabled = false
+            createTracker1.text = getString(R.string.disableTextTracker1)
 
         }
+        else if (createTrackerButton1){
+
+            createTracker1.isEnabled = true
+            createTracker1.text = getString(R.string.create_tracker_1)
+
+        }
 
 
-        selectTracker1.setOnClickListener(){
+        createTracker1.setOnClickListener(){
 
             val intent = Intent(this, inputModule::class.java)
             startActivity(intent)
