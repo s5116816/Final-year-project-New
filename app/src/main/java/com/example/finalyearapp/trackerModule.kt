@@ -141,6 +141,7 @@ class trackerModule : AppCompatActivity() {
             button.text = i
             button.textSize = 15f
 
+
             //add button to linearLayout and increase button value by 1 increment
             scrollableList.addView(button)
             buttonValue += 1

@@ -150,7 +150,7 @@ class inputModule7 : AppCompatActivity() {
 
 
                     //a boolean variable will be stored and pass to CreateNewTracker.kt to disable
-                    //selectTracker1 button
+                    //selectTracker7 button
                     val createTrackerPref =
                         getSharedPreferences("createTrackerButtons", Context.MODE_PRIVATE)
                     val createTrackerEdit = createTrackerPref.edit()
@@ -161,7 +161,7 @@ class inputModule7 : AppCompatActivity() {
 
 
                     //Storing a true boolean in unlockTracker pref
-                    //which will be used to allow trackerButton1 in mainMenu module to be clickable
+                    //which will be used to allow trackerButton7 in mainMenu module to be clickable
                     val unlockTrackerPref =
                         getSharedPreferences("unlockTracker", Context.MODE_PRIVATE)
                     val unlockTrackerEdit = unlockTrackerPref.edit()

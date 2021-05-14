@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">final year app</string>
+    <string name="app_name">Progress tracker app</string>
     <string name="report_chapter_input">Enter chapter name</string>
     <string name="add_chapter_button">Add</string>
     <string name="userInputArtifact">Enter tasks for artifact</string>
@@ -24,4 +24,31 @@
     <string name="first_name">First name</string>
     <string name="project_name">Project name</string>
     <string name="tasks">Tasks</string>
+    <string name="about_this_app_title">About this app</string>
+    <string name="sentence"><b>This is a progress tracker app. Below is a quick guide of how to make
+        one yourself</b>
+        \n\n
+        To make you tracker, press the create tracker button from the main menu
+        and you will be presented with 7 empty
+        trackers. Pick which you want to create.
+        \n\n
+        Inside the input page ,you are required to enter your first name, or student ID, and the title of your project.
+        After that, please enter your main chapters and artifact tasks in their respective areas.
+        Please note that you can only have a maximum of 25 items in total.
+        \n\n
+        Enter the continue button once you are satisfied and you will be directed back to the main
+        menu where you can access your newly made tracker. Simply select the tracker
+        that has the name you have entered in the previous page.
+        \n\n
+        Within the tracker page, you will be presented with a list of tasks based around your input
+        that made the tracker and a circle progress bar. if one of your tasks is completed, simply press on
+        that task and it will change to green. Indicating that it has been completed and increase progression
+        in the circle progress bar. You can also press the task again to tell the tracker that it is
+         still incomplete, changing the color to white and reducing progress inside the circle progress bar.
+        \n\n
+        If you want to delete your tracker, simply press the delete button at the bottom of your tracker
+        page. once done, you will be redirected back to the main menu.
+        \n\n
+
+    </string>
 </resources>

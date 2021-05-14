@@ -21,16 +21,20 @@ class MainActivity : AppCompatActivity() {
         val trackerButton6 = findViewById<Button>(R.id.trackerButton6)
         val trackerButton7 = findViewById<Button>(R.id.trackerButton7)
 
+        //variables from unlockTracker sharedPreference
         val unlockTrackerPref = getSharedPreferences("unlockTracker", Context.MODE_PRIVATE)
         val tracker1 = unlockTrackerPref.getBoolean("tracker1", false)
         val tracker2 = unlockTrackerPref.getBoolean("tracker2", false)
         val tracker3 = unlockTrackerPref.getBoolean("tracker3", false)
         val tracker4 = unlockTrackerPref.getBoolean("tracker4", false)
         val tracker5 = unlockTrackerPref.getBoolean("tracker5", false)
-        val tracker6 = unlockTrackerPref.getBoolean("tracker6",false)
+        val tracker6 = unlockTrackerPref.getBoolean("tracker6", false)
         val tracker7 = unlockTrackerPref.getBoolean("tracker7", false)
 
 
+
+        //if statements to disable button when associate tracker does not exist
+        // or re-enable when tracker do exist
         if (tracker1) {
 
             val namePref = getSharedPreferences("names", Context.MODE_PRIVATE)
@@ -86,15 +90,14 @@ class MainActivity : AppCompatActivity() {
             trackerButton4.isEnabled = true
             trackerButton4.text = name4
 
-        }
-         else if (!tracker4) {
+        } else if (!tracker4) {
 
             trackerButton4.isEnabled = false
             trackerButton4.text = getText(R.string.trackerButton).toString()
 
         }
 
-        if (tracker5){
+        if (tracker5) {
 
             val namePref = getSharedPreferences("names", Context.MODE_PRIVATE)
             val name5 = namePref.getString("userName5", "")
@@ -102,8 +105,7 @@ class MainActivity : AppCompatActivity() {
             trackerButton5.isEnabled = true
             trackerButton5.text = name5
 
-        }
-        else if (!tracker5){
+        } else if (!tracker5) {
 
             trackerButton5.isEnabled = false
             trackerButton5.text = getText(R.string.trackerButton).toString()
@@ -143,6 +145,7 @@ class MainActivity : AppCompatActivity() {
 
 
 
+        //Linking all 7 trackers with their tracker counterpart
         trackerButton1.setOnClickListener() {
 
             val intent = Intent(this, trackerModule::class.java)
@@ -172,21 +175,21 @@ class MainActivity : AppCompatActivity() {
 
         }
 
-        trackerButton5.setOnClickListener(){
+        trackerButton5.setOnClickListener() {
 
             val intent = Intent(this, trackerModule5::class.java)
             startActivity(intent)
 
         }
 
-        trackerButton6.setOnClickListener(){
+        trackerButton6.setOnClickListener() {
 
             val intent = Intent(this, trackerModule6::class.java)
             startActivity(intent)
 
         }
-        
-        trackerButton7.setOnClickListener(){
+
+        trackerButton7.setOnClickListener() {
 
             val intent = Intent(this, trackerModule7::class.java)
             startActivity(intent)
@@ -196,7 +199,7 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    //Functions below handle navigation throughout the app
+    //ling to about module
     fun toAbout(view: View) {
         val intent = Intent(this, AboutApp::class.java)
         startActivity(intent)
@@ -207,12 +210,5 @@ class MainActivity : AppCompatActivity() {
         val intent = Intent(this, CreateNewTracker::class.java)
         startActivity(intent)
     }
-
-
-    fun toUserInfo(view: View) {
-        val intent = Intent(this, UserInfoModule::class.java)
-        startActivity(intent)
-    }
-
 
 }

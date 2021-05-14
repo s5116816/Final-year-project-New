@@ -34,7 +34,6 @@
             android:name=".inputModule2"
             android:windowSoftInputMode="adjustPan" />
         <activity android:name=".CreateNewTracker" />
-        <activity android:name=".UserInfoModule" />
         <activity android:name=".trackerModule" />
         <activity
             android:name=".inputModule"

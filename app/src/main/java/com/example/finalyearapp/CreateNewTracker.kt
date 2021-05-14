@@ -13,6 +13,7 @@ class CreateNewTracker : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_create_new_tracker)
 
+        //variable for all of the buttons
         val createTracker1 = findViewById<Button>(R.id.createTracker1)
         val createTracker2 = findViewById<Button>(R.id.createTracker2)
         val createTracker3 = findViewById<Button>(R.id.createTracker3)
@@ -22,6 +23,7 @@ class CreateNewTracker : AppCompatActivity() {
         val createTracker7 = findViewById<Button>(R.id.createTracker7)
 
 
+        // 7 boolean variables from createTrackerButtons sharedPreference
         val createTrackerPref = applicationContext.getSharedPreferences("createTrackerButtons", Context.MODE_PRIVATE)
         val createTrackerButton1 = createTrackerPref.getBoolean("createTrackerButton1", true)
         val createTrackerButton2 = createTrackerPref.getBoolean("createTrackerButton2", true)
@@ -32,7 +34,9 @@ class CreateNewTracker : AppCompatActivity() {
         val createTrackerButton7 = createTrackerPref.getBoolean("createTrackerButton7",true)
 
 
-        //check if tracker one has been made
+
+        //The if statement below will disable the createTracker buttons if tracker has already been
+        // made
         if (!createTrackerButton1){
 
             createTracker1.isEnabled = false
@@ -129,10 +133,7 @@ class CreateNewTracker : AppCompatActivity() {
         }
 
 
-
-
-
-        //Button accessing their respective input modules
+        // 7 createTracker buttons linked to their respective inputt modules
         createTracker1.setOnClickListener(){
 
             val intent = Intent(this, inputModule::class.java)

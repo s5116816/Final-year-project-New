@@ -83,12 +83,12 @@ class trackerModule3 : AppCompatActivity() {
 
 
             //code to re-enable access to createTracker1 button in CreateNewTracker.kt
-            val createtrackerPref = getSharedPreferences("createTrackerButtons", Context.MODE_PRIVATE)
-            val createTrackereEdit = createtrackerPref.edit()
+            val createTrackerPref = getSharedPreferences("createTrackerButtons", Context.MODE_PRIVATE)
+            val createTrackerEdit = createTrackerPref.edit()
 
-            createTrackereEdit.putBoolean("createTrackerButton3", true)
+            createTrackerEdit.putBoolean("createTrackerButton3", true)
 
-            createTrackereEdit.apply()
+            createTrackerEdit.apply()
 
 
             //code to disable the button that can access this module after tracker deletion
